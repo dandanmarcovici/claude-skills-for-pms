@@ -14,18 +14,22 @@ Each behaves differently, so each gets wired in differently.
 
 | Kind | What it is | How to use it |
 |---|---|---|
-| **Templates** | A fixed output format. Claude fills it in when producing a specific kind of document. | Reference from a CLAUDE.md trigger: "When writing a pre-read, load `templates/pre-read-format.md`." |
-| **Frameworks** | A reasoning model. Informs how Claude thinks about a problem, doesn't force a specific output shape. | Reference from a CLAUDE.md trigger, usually "load when relevant" rather than always-on. |
 | **Skills** | A bounded, interactive workflow. Claude runs a specific process end-to-end when invoked. | Drop the folder into `.claude/skills/`, invoke with `/name`. |
+| **Frameworks** | A reasoning model. Informs how Claude thinks about a problem, doesn't force a specific output shape. | Reference from a CLAUDE.md trigger, usually "load when relevant" rather than always-on. |
+| **Templates** | A fixed output format. Claude fills it in when producing a specific kind of document. | Reference from a CLAUDE.md trigger: "When writing a pre-read, load `templates/pre-read-format.md`." |
 
 ---
 
-## Templates
+## Skills
 
-| File | What it's for |
+| Folder | What it does |
 |---|---|
-| [`templates/pre-read-format.md`](templates/pre-read-format.md) | Documents sent before a meeting, built on the Minto pyramid: recommendation first, then options, then supporting evidence. |
-| [`templates/meeting-notes-format.md`](templates/meeting-notes-format.md) | Meeting agendas and notes, structured so the same document works before the meeting (agenda) and after it (notes). |
+| [`skills/opportunity-check/`](skills/opportunity-check/SKILL.md) | Runs the opportunity-validation framework above as a forced, one-step-at-a-time interrogation, ending in a Go / Needs More Signal / No-Go verdict. |
+| [`skills/product-sense/`](skills/product-sense/SKILL.md) | A 5-question stress test (empathy, simulation, strategy, taste, creativity) for a product decision, ending in a Go / Reconsider / Stop verdict. |
+| [`skills/html-presentation/`](skills/html-presentation/SKILL.md) | Turns a markdown file or doc into a single self-contained HTML slide deck for live screen delivery, two-phase (outline approval, then build) so it never generates 20 slides you didn't ask for. Ships with a default accent color, swap the hex in the Brand section for your own. |
+| [`skills/session-sync/`](skills/session-sync/SKILL.md) | Scans the current session and updates context.md, tasks.md, and log.md with what actually changed, skipping anything already captured or uncertain. Built for the pm-second-brain file convention. |
+
+`opportunity-check` and `product-sense` are built to push back, not validate. If an answer is vague or generic, they're instructed to challenge it once before moving on, not accept it and move to the next question.
 
 ---
 
@@ -41,16 +45,12 @@ Not included here, but worth knowing: Teresa Torres' Business Fundamentals Canva
 
 ---
 
-## Skills
+## Templates
 
-| Folder | What it does |
+| File | What it's for |
 |---|---|
-| [`skills/opportunity-check/`](skills/opportunity-check/SKILL.md) | Runs the opportunity-validation framework above as a forced, one-step-at-a-time interrogation, ending in a Go / Needs More Signal / No-Go verdict. |
-| [`skills/product-sense/`](skills/product-sense/SKILL.md) | A 5-question stress test (empathy, simulation, strategy, taste, creativity) for a product decision, ending in a Go / Reconsider / Stop verdict. |
-| [`skills/html-presentation/`](skills/html-presentation/SKILL.md) | Turns a markdown file or doc into a single self-contained HTML slide deck for live screen delivery, two-phase (outline approval, then build) so it never generates 20 slides you didn't ask for. Ships with a default accent color, swap the hex in the Brand section for your own. |
-| [`skills/session-sync/`](skills/session-sync/SKILL.md) | Scans the current session and updates context.md, tasks.md, and log.md with what actually changed, skipping anything already captured or uncertain. Built for the pm-second-brain file convention. |
-
-`opportunity-check` and `product-sense` are built to push back, not validate. If an answer is vague or generic, they're instructed to challenge it once before moving on, not accept it and move to the next question.
+| [`templates/pre-read-format.md`](templates/pre-read-format.md) | Documents sent before a meeting, built on the Minto pyramid: recommendation first, then options, then supporting evidence. |
+| [`templates/meeting-notes-format.md`](templates/meeting-notes-format.md) | Meeting agendas and notes, structured so the same document works before the meeting (agenda) and after it (notes). |
 
 ---
 
