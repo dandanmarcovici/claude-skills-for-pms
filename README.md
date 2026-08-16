@@ -48,6 +48,7 @@ Not included here, but worth knowing: Teresa Torres' Business Fundamentals Canva
 | [`skills/opportunity-check/`](skills/opportunity-check/SKILL.md) | Runs the opportunity-validation framework above as a forced, one-step-at-a-time interrogation, ending in a Go / Needs More Signal / No-Go verdict. |
 | [`skills/product-sense/`](skills/product-sense/SKILL.md) | A 5-question stress test (empathy, simulation, strategy, taste, creativity) for a product decision, ending in a Go / Reconsider / Stop verdict. |
 | [`skills/html-presentation/`](skills/html-presentation/SKILL.md) | Turns a markdown file or doc into a single self-contained HTML slide deck for live screen delivery, two-phase (outline approval, then build) so it never generates 20 slides you didn't ask for. Ships with a default accent color, swap the hex in the Brand section for your own. |
+| [`skills/session-sync/`](skills/session-sync/SKILL.md) | Scans the current session and updates context.md, tasks.md, and log.md with what actually changed, skipping anything already captured or uncertain. Built for the pm-second-brain file convention. |
 
 `opportunity-check` and `product-sense` are built to push back, not validate. If an answer is vague or generic, they're instructed to challenge it once before moving on, not accept it and move to the next question.
 
@@ -63,7 +64,7 @@ Not included here, but worth knowing: Teresa Torres' Business Fundamentals Canva
    - `frameworks/opportunity-validation.md` → when weighing whether to pursue a new market opportunity, or evaluating a go/no-go bet before committing resources.
    ```
 
-3. For skills: copy the whole skill folder into `.claude/skills/`. Claude Code picks it up automatically, invoke with `/opportunity-check`, `/product-sense`, or `/html-presentation`.
+3. For skills: copy the whole skill folder into `.claude/skills/`. Claude Code picks it up automatically, invoke with `/opportunity-check`, `/product-sense`, `/html-presentation`, or `/session-sync`.
 
 ---
 
