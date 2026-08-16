@@ -56,7 +56,13 @@ Not included here, but worth knowing: Teresa Torres' Business Fundamentals Canva
 ## Setting it up
 
 1. Copy the folders you want into your own vault or repo.
-2. For templates and frameworks: add a trigger line to your CLAUDE.md pointing at the file.
+2. For templates and frameworks: add a trigger line to your CLAUDE.md pointing at the file, so Claude loads it only when it's relevant, not on every session. Same pattern either way: `path → when to load it`.
+
+   ```
+   - `templates/pre-read-format.md` → when writing a pre-read, briefing document, or anything meant to be reviewed before a meeting.
+   - `frameworks/opportunity-validation.md` → when weighing whether to pursue a new market opportunity, or evaluating a go/no-go bet before committing resources.
+   ```
+
 3. For skills: copy the whole skill folder into `.claude/skills/`. Claude Code picks it up automatically, invoke with `/opportunity-check`, `/product-sense`, or `/html-presentation`.
 
 ---
